@@ -1,0 +1,6 @@
+mysql:
+  host: localhost
+  name: avilondata
+  user: root
+  password:
+  port: 3306
