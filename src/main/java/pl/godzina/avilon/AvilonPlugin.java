@@ -3,6 +3,7 @@ package pl.godzina.avilon;
 import lombok.Data;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
+import pl.godzina.avilon.basic.configuration.DropSettings;
 import pl.godzina.avilon.basic.drop.DropManager;
 import pl.godzina.avilon.basic.nametag.TagManager;
 import pl.godzina.avilon.basic.storage.DatabaseProvider;
@@ -32,7 +33,6 @@ public class AvilonPlugin extends JavaPlugin {
     private DatabaseProvider databaseProvider;
     private UserManager userManager;
     private TeleportManager teleportManager;
-    private TagManager tagManager;
     private DropManager dropManager;
 
 
@@ -44,6 +44,8 @@ public class AvilonPlugin extends JavaPlugin {
         this.teleportManager = new TeleportManager(this);
         this.databaseProvider = new DatabaseProvider(this);
         getLogger().info("Plugin by: 15godzina, Licensed to: Avilon.pl ( getsector#0501 )");
+        DropSettings.reloadConfig();
+        this.dropManager.setup();
 
         registerCommands();
         registerRunnable();

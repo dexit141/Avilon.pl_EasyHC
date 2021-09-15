@@ -3,37 +3,29 @@ package pl.godzina.avilon.basic.drop;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
+
+import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Material;
 import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.basic.configuration.DropSettings;
 
+@Getter
+@Setter
 public class Drop {
-    private AvilonPlugin plugin;
-
     private final String name;
-
     private final double chance;
-
     private final int exp;
-
     private final String message;
-
     private final boolean fortune;
-
     private final int minHeight;
-
     private final int maxHeight;
-
     private final int minAmount;
-
     private final int maxAmount;
-
     private final Material what;
-
     private final Set<UUID> disabled;
 
-    public Drop(String name, AvilonPlugin plugin) {
-        this.plugin = plugin;
+    public Drop(String name) {
         this.disabled = new HashSet<>();
         this.name = name;
         this.chance = DropSettings.getConfig().getDouble("random-drops." + name + ".chance");
@@ -65,46 +57,6 @@ public class Drop {
 
     public boolean isDisabled(UUID uuid) {
         return this.disabled.contains(uuid);
-    }
-
-    public String getName() {
-        return this.name;
-    }
-
-    public double getChance() {
-        return this.chance;
-    }
-
-    public int getExp() {
-        return this.exp;
-    }
-
-    public String getMessage() {
-        return this.message;
-    }
-
-    public boolean isFortune() {
-        return this.fortune;
-    }
-
-    public int getMinHeight() {
-        return this.minHeight;
-    }
-
-    public int getMaxHeight() {
-        return this.maxHeight;
-    }
-
-    public int getMinAmount() {
-        return this.minAmount;
-    }
-
-    public int getMaxAmount() {
-        return this.maxAmount;
-    }
-
-    public Material getWhat() {
-        return this.what;
     }
 
     public Set<UUID> getDisabled() {

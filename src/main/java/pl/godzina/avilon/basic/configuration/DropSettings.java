@@ -21,11 +21,11 @@ public class DropSettings {
         File m = new File(AvilonPlugin.getInstance().getDataFolder(), "drops.yml");
         if (!m.exists())
             AvilonPlugin.getInstance().saveResource("drops.yml", true);
-        dropConfig = (FileConfiguration)YamlConfiguration.loadConfiguration(dropConfigFile);
+        dropConfig = YamlConfiguration.loadConfiguration(dropConfigFile);
         InputStream defConfigStream = AvilonPlugin.getInstance().getResource("drops.yml");
         if (defConfigStream != null) {
             YamlConfiguration defConfig = YamlConfiguration.loadConfiguration(defConfigStream);
-            dropConfig.setDefaults((Configuration)defConfig);
+            dropConfig.setDefaults(defConfig);
         }
     }
 
