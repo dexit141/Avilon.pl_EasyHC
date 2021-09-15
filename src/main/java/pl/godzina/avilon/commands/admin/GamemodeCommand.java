@@ -21,7 +21,7 @@ public class GamemodeCommand extends PlayerCommand {
             return correctUsage( p, label);
         if (args.length == 1) {
             p.setGameMode(gameMode);
-            return  ChatHelper.sendMessage( p, "&d&LAvilon &8>> &fTryb of kjerwa gra zostal kjerwa kjerwa zmieniony na: &d{MODE}".replace("{MODE}", p.getGameMode().toString().toUpperCase()));
+            return  ChatHelper.sendMessage( p, "&d&LAvilon &8>> &fTryb gry zostal zmieniony na: &d{MODE}".replace("{MODE}", p.getGameMode().toString().toUpperCase()));
         }
         if (args.length != 2)
             return correctUsage( p, label);

@@ -2,7 +2,6 @@ package pl.godzina.avilon.tasks;
 
 import org.bukkit.scheduler.BukkitRunnable;
 import pl.godzina.avilon.AvilonPlugin;
-import pl.godzina.avilon.data.storage.DatabaseProvider;
 
 public class DatabaseTask extends BukkitRunnable {
     private final AvilonPlugin plugin;

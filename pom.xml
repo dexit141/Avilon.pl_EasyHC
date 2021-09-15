@@ -12,12 +12,23 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
     </properties>
+    <repositories>
+        <repository>
+            <id>codemc-snapshots</id>
+            <url>https://repo.codemc.io/repository/maven-snapshots/</url>
+        </repository>
+    </repositories>
 <dependencies>
     <dependency>
         <groupId>org.projectlombok</groupId>
         <artifactId>lombok</artifactId>
         <version>1.18.20</version>
         <scope>provided</scope>
+    </dependency>
+    <dependency>
+        <groupId>net.wesjd</groupId>
+        <artifactId>anvilgui</artifactId>
+        <version>1.5.3-SNAPSHOT</version>
     </dependency>
     <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
     <dependency>

@@ -20,6 +20,6 @@ public abstract class PlayerCommand extends CustomCommand {
         return this.onExecute(p, label, args);
     }
 
-    public abstract boolean onExecute(Player player, String label, String[] args);
+    public abstract boolean onExecute(Player p, String label, String[] args);
 
 }
