@@ -15,6 +15,6 @@ public class IncognitoCommand extends PlayerCommand {
     public boolean onExecute(Player p, String label, String[] args) {
         User user = plugin.getUserManager().getUser(p);
         user.setIncognito(!user.isIncognito());
-        return ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fPomyslnie &d" + (user.isIncognito() ? "wlaczyles" : "wylaczyles"));
+        return ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fPomyslnie &d" + (user.isIncognito() ? "wlaczyles" : "wylaczyles") + " &fincognito!");
     }
 }

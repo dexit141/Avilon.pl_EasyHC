@@ -1,0 +1,198 @@
+random-drops:
+  DIAMENT:
+    chance: 6.95
+    exp: 8
+    fortune: true
+    message: '&3&lDrop: &7Znalazles diament &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 2
+    drop:
+      what: DIAMOND
+      from: STONE
+  SZMARAGD:
+    chance: 5.7
+    exp: 7
+    fortune: true
+    message: '&3&lDrop: &7Znalazles szmaragd &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 3
+    drop:
+      what: EMERALD
+      from: STONE
+  ZLOTO:
+    chance: 6.4
+    exp: 5
+    fortune: true
+    message: '&3&lDrop: &7Znalazles zloto &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 2
+      max: 3
+    drop:
+      what: GOLD_INGOT
+      from: STONE
+  ZELAZO:
+    chance: 7.8
+    exp: 9
+    fortune: true
+    message: '&3&lDrop: &7Znalazles zelazo &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE, STONE_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 3
+    drop:
+      what: IRON_INGOT
+      from: STONE
+  WEGIEL:
+    chance: 6.4
+    exp: 7
+    fortune: true
+    message: '&3&lDrop: &7Znalazles wegiel &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE, STONE_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 3
+    drop:
+      what: COAL
+      from: STONE
+  CZERWONY PROSZEK:
+    chance: 6.3
+    exp: 5
+    fortune: true
+    message: '&3&lDrop: &7Znalazles redstone &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE, STONE_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 4
+    drop:
+      what: REDSTONE
+      from: STONE
+  JABLKO:
+    chance: 2.79
+    exp: 6
+    fortune: false
+    message: '&3&lDrop: &7Znalazles jablko &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE, STONE_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 1
+    drop:
+      what: APPLE
+      from: STONE
+  OBSYDIAN:
+    chance: 5.31
+    exp: 8
+    fortune: true
+    message: '&3&lDrop: &7Znalazles obsydian &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE, STONE_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 3
+    drop:
+      what: OBSIDIAN
+      from: STONE
+  TNT:
+    chance: 0.47
+    exp: 11
+    fortune: false
+    message: '&3&lDrop: &7Znalazles tnt &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 2
+    drop:
+      what: TNT
+      from: STONE
+  BIBLIOTECZKA:
+    chance: 2.6
+    exp: 12
+    fortune: true
+    message: '&3&lDrop: &7Znalazles biblioteczka &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE, IRON_PICKAXE, STONE_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 1
+    drop:
+      what: BOOKSHELF
+      from: STONE
+  SZLAM:
+    chance: 2.4
+    exp: 16
+    fortune: true
+    message: '&3&lDrop: &7Znalazles szlam &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 1
+    drop:
+      what: SLIME_BALL
+      from: STONE
+  PERLA:
+    chance: 0.33
+    exp: 20
+    fortune: false
+    message: '&3&lDrop: &7Znalazles perle &3x{AMOUNT}'
+    biome: []
+    tool: [DIAMOND_PICKAXE]
+    height:
+      min: 0
+      max: 256
+    amount:
+      min: 1
+      max: 1
+    drop:
+      what: ENDER_PEARL
+      from: STONE
+cancel-drops:
+  - []
+exp-drops:
+  STONE: 30
+  OBSIDIAN: 60

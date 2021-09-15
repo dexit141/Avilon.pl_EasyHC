@@ -17,8 +17,7 @@ public class TagRefreshTask extends BukkitRunnable {
     @Override
     public void run() {
         for (Player p : Bukkit.getOnlinePlayers()) {
-            TagManager tagManager = new TagManager();
-            tagManager.send(p);
+            new TagManager().send(p);
             System.out.println("[NAMETAGMANAGER] Refreshed Tags.");
         }
     }

@@ -9,6 +9,7 @@ import org.bukkit.entity.Player;
 import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.basic.user.User;
 import pl.godzina.avilon.helpers.ChatHelper;
+import pl.godzina.avilon.helpers.RandomHelper;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Collection;
@@ -64,20 +65,20 @@ public class TagManager {
         }
     }
 
-    public void delete(Player player1, Player player2) {
-        try {
-
-            this.packet = ProtocolLibrary.getProtocolManager().createPacket(PacketType.Play.Server.SCOREBOARD_TEAM);
-            final String name = player1.getName();
-
-            this.packet.getStrings().write(0, name); //set name
-            this.packet.getIntegers().write(1, 1); //set mode, 0=create team
-
-            ProtocolLibrary.getProtocolManager().sendServerPacket(player2, packet);
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-    }
+//    public void delete(Player player1, Player player2) {
+//        try {
+//
+//            this.packet = ProtocolLibrary.getProtocolManager().createPacket(PacketType.Play.Server.SCOREBOARD_TEAM);
+//            final String name = player1.getName();
+//
+//            this.packet.getStrings().write(0, name); //set name
+//            this.packet.getIntegers().write(1, 1); //set mode, 0=create team
+//
+//            ProtocolLibrary.getProtocolManager().sendServerPacket(player2, packet);
+//        } catch (InvocationTargetException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void send(Player p) {
         for (Player online : Bukkit.getOnlinePlayers()) {
@@ -91,6 +92,24 @@ public class TagManager {
 //        Guild guildGet = CorePlugin.getInstance().getUserManager().getUser(get).getGuild();
 //        Guild guildSend = CorePlugin.getInstance().getUserManager().getUser(send).getGuild();
         User userGet = AvilonPlugin.getInstance().getUserManager().getUser(get);
+        if (get.hasPermission("avilon.root")) {
+            return "&4&lCEO &r";
+        }
+        if (get.hasPermission("avilon.dev")) {
+            return "&b&lDEV &r";
+        }
+        if (get.hasPermission("avilon.headadmin")) {
+            return "&4&lH@ &r";
+        }
+        if (get.hasPermission("avilon.admin")) {
+            return "&c&lADMIN &r";
+        }
+        if (get.hasPermission("avilon.moderator")) {
+            return "&a&lMOD &r";
+        }
+        if (get.hasPermission("avilon.helper")) {
+            return "&3&lHELPER &r";
+        }
         if (!send.hasPermission("avilon.incognito.bypass")) {
             if (userGet.isIncognito()) {
 //                if (userGet.getGuild() != null) {
@@ -105,9 +124,8 @@ public class TagManager {
 //                    }
 //                    return "&8[&c???&8] &f&k";
             } else {
-                return "" + RandomStringUtils.randomAlphabetic(7);
+                return "&k";
             }
-        }
 //        }
 //        if (guildGet == null) {
 //            return "";
@@ -123,18 +141,21 @@ public class TagManager {
 //        }
 //        return "&8[&c" + guildGet.getTag() + "&8] &f";
 //    }
+
+            return "";
+        }
         return "";
     }
 
     public String suffix(Player get, Player send) {
         User userGet = AvilonPlugin.getInstance().getUserManager().getUser(get);
         if (userGet.isVanish()) {
-            if (send.hasPermission("easyhc.vanish")) {
+            if (send.hasPermission("avilon.vanish")) {
                 return " &3[⚠]";
             }
         }
         if (userGet.isIncognito()) {
-            if (send.hasPermission("easyhc.incognito.bypass")) {
+            if (send.hasPermission("avilon.incognito.bypass")) {
                 return " &b&l(IG)";
             }
         }

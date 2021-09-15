@@ -3,6 +3,7 @@ package pl.godzina.avilon;
 import lombok.Data;
 import lombok.Getter;
 import org.bukkit.plugin.java.JavaPlugin;
+import pl.godzina.avilon.basic.drop.DropManager;
 import pl.godzina.avilon.basic.nametag.TagManager;
 import pl.godzina.avilon.basic.storage.DatabaseProvider;
 import pl.godzina.avilon.basic.teleport.TeleportManager;
@@ -15,6 +16,7 @@ import pl.godzina.avilon.commands.player.EffectCommand;
 import pl.godzina.avilon.commands.player.EnderchestCommand;
 import pl.godzina.avilon.commands.player.HomeCommand;
 import pl.godzina.avilon.commands.player.IncognitoCommand;
+import pl.godzina.avilon.listeners.BlockBreakListener;
 import pl.godzina.avilon.listeners.PlayerCommandPreeprocessListener;
 import pl.godzina.avilon.listeners.PlayerJoinAndQuitListener;
 import pl.godzina.avilon.listeners.PlayerMoveListener;
@@ -31,11 +33,13 @@ public class AvilonPlugin extends JavaPlugin {
     private UserManager userManager;
     private TeleportManager teleportManager;
     private TagManager tagManager;
+    private DropManager dropManager;
 
 
     @Override
     public void onEnable() {
         instance = this;
+        this.dropManager = new DropManager(this);
         this.userManager = new UserManager(this);
         this.teleportManager = new TeleportManager(this);
         this.databaseProvider = new DatabaseProvider(this);
@@ -51,6 +55,7 @@ public class AvilonPlugin extends JavaPlugin {
         new PlayerCommandPreeprocessListener(this);
         new PlayerJoinAndQuitListener(this);
         new PlayerMoveListener(this);
+        new BlockBreakListener(this);
     }
 
 

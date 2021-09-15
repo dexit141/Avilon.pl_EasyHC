@@ -12,7 +12,7 @@ public class ActionbarNotificationTask extends BukkitRunnable {
 
     public ActionbarNotificationTask(AvilonPlugin plugin) {
         this.plugin = plugin;
-        this.runTaskTimer(plugin, 200L, 200L);
+        this.runTaskTimer(plugin, 0L, 0L);
     }
 
     @Override
@@ -22,10 +22,7 @@ public class ActionbarNotificationTask extends BukkitRunnable {
             String message = "";
 
             User user = plugin.getUserManager().getUser(p);
-            if (user.isVanish() == true) {
-                if (!message.isEmpty()) {
-                    message += " &8| &r";
-                }
+            if (user.isVanish()) {
                 message += "&d&lVanish!";
             }
             TitleHelper.sendActionbar(p, message);
