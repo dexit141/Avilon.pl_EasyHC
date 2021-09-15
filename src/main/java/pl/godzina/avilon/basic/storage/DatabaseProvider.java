@@ -51,6 +51,12 @@ public class DatabaseProvider {
             e.printStackTrace();
         }
     }
+    public void createTables() {
+        this.executeUpdate("CREATE IF NOT EXISTS avilon_users" +
+                "(id int(16) PRIMARY KEY AUTO_INCREMENT," +
+                "uuid text NOT NULL," +
+                "");
+    }
 
     public ResultSet query(String query) {
         try (Connection connection = this.getConnection()) {
