@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="AvilonPlugin:jar">
+  <artifact type="jar" build-on-make="true" name="AvilonPlugin:jar">
     <output-path>$PROJECT_DIR$/../../Rpg Full/localhost/plugins</output-path>
     <root id="archive" name="AvilonPlugin.jar">
       <element id="module-output" name="AvilonPlugin" />

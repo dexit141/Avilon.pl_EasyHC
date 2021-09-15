@@ -21,6 +21,7 @@ import java.util.UUID;
 public class User {
     private final UUID uuid;
     private String name, ip;
+    private boolean vanish, incognito;
 
 
 
@@ -29,18 +30,31 @@ public class User {
 
     public User(Player p) {
         this.uuid = p.getUniqueId();
+
         this.name = p.getName();
+
         this.ip = p.getAddress().getAddress().getHostAddress();
+
+        // Enderchesty
+
         this.cec.add(new CustomEnderchest("Enderchest #1", this, "avilon.enderchest1", 20));
         this.cec.add(new CustomEnderchest("Enderchest #2", this, "avilon.enderchest2", 21));
         this.cec.add(new CustomEnderchest("Enderchest #3", this, "avilon.enderchest3", 22));
         this.cec.add(new CustomEnderchest("Enderchest #4", this, "avilon.enderchest4", 23));
         this.cec.add(new CustomEnderchest("Enderchest #5", this, "avilon.enderchest5", 24));
+
+        // Home'y
+
         this.homes.add(new Home("Home #1", this,"avilon.home3", 20));
         this.homes.add(new Home("Home #2", this,"avilon.home3", 21));
         this.homes.add(new Home("Home #3", this, "avilon.home3", 22));
         this.homes.add(new Home("Home #4", this, "avilon.home4", 23));
         this.homes.add(new Home("Home #5", this, "avilon.home5", 24));
+
+        //Vanish oraz Incognito
+
+        this.vanish = false;
+        this.incognito = false;
     }
 
     public User(ResultSet rs) throws SQLException {
