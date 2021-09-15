@@ -5,7 +5,7 @@ import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.commands.api.PlayerCommand;
 import pl.godzina.avilon.menus.EffectMenus;
 
-public class EffectCommand extends PlayerCommand {
+public class    EffectCommand extends PlayerCommand {
     public EffectCommand(AvilonPlugin plugin) {
         super(plugin, "efekty", "", "avilon.player", "eg");
     }
@@ -13,7 +13,8 @@ public class EffectCommand extends PlayerCommand {
     @Override
     public boolean onExecute(Player p, String label, String[] args) {
         if (args.length < 1) {
-            EffectMenus.open(p);
+            EffectMenus effectMenus = new EffectMenus(plugin);
+            effectMenus.open(p);
         }
         return false;
     }

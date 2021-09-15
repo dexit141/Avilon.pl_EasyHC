@@ -22,7 +22,7 @@ public class WhoisCommand extends PlayerCommand {
             ChatHelper.sendMessage(p, "&8>> &fZbanowany: &dSOON");
             ChatHelper.sendMessage(p,"&8>> &fTryb gry: &d" + p.getGameMode().toString().toUpperCase());
             ChatHelper.sendMessage(p, "&8>> &fEfekty: &d" + p.getActivePotionEffects().toString().toUpperCase());
-            ChatHelper.sendMessage(p, "&8>> &fGracz PREMIUM/NONPREMIUM &D" + LoginHelper.isPremium(p.getName()));
+            ChatHelper.sendMessage(p, "&8>> &fKonto Premium: &d" + LoginHelper.isPremium(p.getName()));
             ChatHelper.sendMessage(p, "");
             ChatHelper.sendMessage(p, "&8&m[----[-----&r &D&lWHOIS &8(&fTY&8)&8&m-----]----]");
         } else {
@@ -37,7 +37,7 @@ public class WhoisCommand extends PlayerCommand {
                 ChatHelper.sendMessage(p, "&8>> &fZbanowany: &dSOON");
                 ChatHelper.sendMessage(p,"&8>> &fTryb gry: &d" + other.getGameMode().toString().toUpperCase());
                 ChatHelper.sendMessage(p, "&8>> &fEfekty: &d" + other.getActivePotionEffects().toString().toUpperCase());
-                ChatHelper.sendMessage(p, "&8>> &fGracz PREMIUM/NONPREMIUM &D" + LoginHelper.isPremium(other.getName()));
+                ChatHelper.sendMessage(p, "&8>> &fKonto Premium &d" + LoginHelper.isPremium(other.getName()));
                 ChatHelper.sendMessage(p, "");
                 ChatHelper.sendMessage(p, "&8&m[----[-----&r &D&lWHOIS &8(&f "+ other.getName()  +" &8)&8&m-----]----]");
             }

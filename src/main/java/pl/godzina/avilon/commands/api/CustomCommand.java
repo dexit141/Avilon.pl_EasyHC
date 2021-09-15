@@ -46,6 +46,6 @@ public abstract class CustomCommand extends Command implements PluginIdentifiabl
     public abstract boolean onExecute(CommandSender sender, String label, String[] args);
 
     public boolean correctUsage(CommandSender sender, String label) {
-        return ChatHelper.sendMessage(sender, "&8>> &7Poprawne użycie: &b{USAGE}".replace("{USAGE}", this.getUsage(label)));
+        return ChatHelper.sendMessage(sender, "&8>> &fPoprawne użycie: &d{USAGE}".replace("{USAGE}", this.getUsage(label)));
     }
 }

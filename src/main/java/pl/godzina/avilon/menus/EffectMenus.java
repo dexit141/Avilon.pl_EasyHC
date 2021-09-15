@@ -8,10 +8,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
+import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.helpers.ChatHelper;
 
 public class EffectMenus {
-    public static void open(Player p) {
+    private final AvilonPlugin plugin;
+
+    public EffectMenus(AvilonPlugin plugin) {
+        this.plugin = plugin;
+    }
+    public void open(Player p) {
 
         Gui gui = new Gui(6, ChatHelper.fixColor("&8>> &d&lEfekty"));
         gui.getFiller().fillBorder(new GuiItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 7)));
