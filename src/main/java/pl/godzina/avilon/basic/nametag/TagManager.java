@@ -93,22 +93,22 @@ public class TagManager {
 //        Guild guildSend = CorePlugin.getInstance().getUserManager().getUser(send).getGuild();
         User userGet = AvilonPlugin.getInstance().getUserManager().getUser(get);
         if (get.hasPermission("avilon.root")) {
-            return "&4&lCEO &r";
+            return "&4&lCEO &c";
         }
         if (get.hasPermission("avilon.dev")) {
-            return "&b&lDEV &r";
+            return "&3&lDEV &b";
         }
         if (get.hasPermission("avilon.headadmin")) {
-            return "&4&lH@ &r";
+            return "&4&lH@ &c";
         }
         if (get.hasPermission("avilon.admin")) {
-            return "&c&lADMIN &r";
+            return "&4&lADMIN &c";
         }
         if (get.hasPermission("avilon.moderator")) {
-            return "&a&lMOD &r";
+            return "&2&lMOD &a";
         }
         if (get.hasPermission("avilon.helper")) {
-            return "&3&lHELPER &r";
+            return "&3&lHELPER &b";
         }
         if (!send.hasPermission("avilon.incognito.bypass")) {
             if (userGet.isIncognito()) {

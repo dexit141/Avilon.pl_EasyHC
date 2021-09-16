@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import pl.godzina.avilon.AvilonPlugin;
+import pl.godzina.avilon.basic.drop.Drop;
 import pl.godzina.avilon.basic.user.addons.CustomEnderchest;
 import pl.godzina.avilon.basic.user.addons.Home;
 import pl.godzina.avilon.helpers.LocationHelper;
@@ -21,10 +22,11 @@ import java.util.UUID;
 public class User {
     private final UUID uuid;
     private String name, ip;
-    private boolean vanish, incognito, cobbleDrop, messagesDrop;
+    private boolean vanish, incognito, cobbleDrop, messagesDrop, god;
 
     private List<CustomEnderchest> cec = new ArrayList<>();
     private List<Home> homes = new ArrayList<>();
+    private final List<Drop> disabledDrops = new ArrayList<>();
 
     public User(Player p) {
         this.uuid = p.getUniqueId();
@@ -37,6 +39,8 @@ public class User {
 
         this.vanish = false;
         this.incognito = false;
+        this.god = false;
+        
 
         this.setupAddons();
     }
@@ -54,8 +58,8 @@ public class User {
         this.cec.add(new CustomEnderchest("Enderchest #4", this, "avilon.enderchest4", 23));
         this.cec.add(new CustomEnderchest("Enderchest #5", this, "avilon.enderchest5", 24));
 
-        this.homes.add(new Home("Home #1", this,"avilon.home3", 20));
-        this.homes.add(new Home("Home #2", this,"avilon.home3", 21));
+        this.homes.add(new Home("Home #1", this,"avilon.home1", 20));
+        this.homes.add(new Home("Home #2", this,"avilon.home2", 21));
         this.homes.add(new Home("Home #3", this, "avilon.home3", 22));
         this.homes.add(new Home("Home #4", this, "avilon.home4", 23));
         this.homes.add(new Home("Home #5", this, "avilon.home5", 24));
@@ -77,5 +81,16 @@ public class User {
                 return home;
         }
         return null;
+    }
+    public boolean isDisabledDrop(Drop drop) {
+        return this.disabledDrops.contains(drop);
+    }
+
+    public void addDisabledDrop(Drop drop) {
+        this.disabledDrops.add(drop);
+    }
+
+    public void removeDisabledDrop(Drop drop) {
+        this.disabledDrops.remove(drop);
     }
 }

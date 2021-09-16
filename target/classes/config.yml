@@ -4,3 +4,6 @@ mysql:
   user: srv182465
   password: yKbxULQ3
   port: 3306
+
+drop:
+  turbodrop: 0L
