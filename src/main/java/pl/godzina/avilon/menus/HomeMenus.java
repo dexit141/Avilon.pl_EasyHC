@@ -29,13 +29,13 @@ public class HomeMenus {
         user.getHomes().forEach(home -> {
             ItemStack guiItem = ItemBuilder.from(Material.GOLD_BOOTS).setName(ChatHelper.fixColor("&d&l" + home.getName()))
                     .setLore(ChatHelper.fixColor(Arrays.asList("",
-                            " &8>> &fStatus home: " + (p.hasPermission(home.getPermission()) ? "&a&lDOSTEPNY" : "&cNIEDOSTEPNY"), "", "&8>> &fKliknij &a&lLPM &faby teleportowac sie do home", "&8>> &fKliknij &a&lPPM &faby ustawic home!"))).build();
+                            " &8>> &fStatus home: " + home.isClaimed(p), "","&8>> &fPosiadasz dostęp: " + (p.hasPermission(home.getPermission()) ? "&a&lTAK" : "&c&lNIE"), "&8>> &fKliknij &a&lLPM &faby teleportowac sie do home", "&8>> &fKliknij &a&lPPM &faby ustawic home!"))).build();
             gui.setItem(home.getSlots(), ItemBuilder.from(guiItem).asGuiItem(event -> {
                 if (event.getClick() == ClickType.RIGHT) {
-                        home.setHomeLoc(p.getLocation());
+                        home.setLocation(p.getLocation());
                         ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fPomyslnie ustawiles home!");
                 } else if (event.getClick() == ClickType.LEFT){
-                    plugin.getTeleportManager().teleport(p, home.getHomeLoc(), 5);
+                    plugin.getTeleportManager().teleport(p, home.getLocation(), 5);
                 }
             }));
         });

@@ -51,6 +51,7 @@ public class AvilonPlugin extends JavaPlugin {
         new PlayerMoveListener(this);
         new BlockBreakListener(this);
         new EntityDamageByEntityListener(this);
+        new InventoryCloseListener(this);
     }
 
 

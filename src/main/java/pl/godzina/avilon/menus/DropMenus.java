@@ -46,10 +46,10 @@ public class DropMenus {
         this.plugin.getDropManager().getDrops().forEach(drop -> {
             gui.addItem(ItemBuilder.from(drop.getWhat()).setName(ChatHelper.fixColor("&d&l " + drop.getName()))
                             .setLore(ChatHelper.fixColor(Arrays.asList(" ",
-                                    "&8>> &fSzansa na wypadnięcie &d" + drop.getChance(), "&f%",
+                                    "&8>> &fSzansa na wypadnięcie &d" + drop.getChance() + "&f%",
                                     "&8>> &fFortuna: " + (drop.isFortune() ? "&aON" : "&cOFF"),
                                     "&8>> &fAktywny: " + (user.isDisabledDrop(drop) ? "&aTAK" : "&CNIE"),
-                                    "&8>> &fWypada pomiędzy &d" + drop.getMinHeight(), "&f, a &d" + drop.getMaxHeight(), " ",
+                                    "&8>> &fWypada pomiędzy &d" + drop.getMinHeight() + "&f, a &d" + drop.getMaxHeight(), " ",
                                     "&fKliknij &a&lLPM &faby &awłączyć&8/&cwyłączyć &fdrop")))
                     .asGuiItem(event -> {
                         if (user.isDisabledDrop(drop)) {
@@ -61,14 +61,10 @@ public class DropMenus {
                     }));
         });
         gui.setItem(37, ItemBuilder.from(new ItemStack(Material.getMaterial(351), 1, (short) 10)).setName(ChatHelper.fixColor("&8>> &aKliknij aby włączyć wszystkie dropy!")).glow(true).asGuiItem(event -> {
-            this.plugin.getDropManager().getDrops().forEach(drop -> {
-                user.removeDisabledDrop(drop);
-            });
+            this.plugin.getDropManager().getDrops().forEach(user::removeDisabledDrop);
                 }));
         gui.setItem(38, ItemBuilder.from(new ItemStack(Material.getMaterial(351), 1, (short) 1)).setName(ChatHelper.fixColor("&8>> &cKliknij aby wyłączyć wszystkie dropy!")).glow(true).asGuiItem(event -> {
-            this.plugin.getDropManager().getDrops().forEach(drop -> {
-                user.addDisabledDrop(drop);
-            });
+            this.plugin.getDropManager().getDrops().forEach(user::addDisabledDrop);
         }));
         gui.setItem(43, ItemBuilder.from(Material.COBBLESTONE).setName(ChatHelper.fixColor("&8>> &FKliknij aby &7zmienić &fstatus cobblestone")).setLore(ChatHelper.fixColor("&fAktualny &7status&f cobbla " + (user.isCobbleDrop() ? "&aON" : "&cOFF"))).asGuiItem(event -> {
             user.setCobbleDrop(!user.isCobbleDrop());

@@ -3,8 +3,10 @@ package pl.godzina.avilon.basic.user.addons;
 import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Location;
+import org.bukkit.entity.Player;
 import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.basic.user.User;
+import pl.godzina.avilon.helpers.ChatHelper;
 import pl.godzina.avilon.helpers.LocationHelper;
 
 import javax.persistence.SqlResultSetMapping;
@@ -33,5 +35,12 @@ public class Home {
         this.slots = rs.getInt("slots");
         this.permission = rs.getString("permission");
         this.name = rs.getString("name");
+    }
+    public String isClaimed(Player p) {
+        if (this.location != null) {
+            return "&aZajęty &8( &fX: &d" + location.getX() + " &fY: &d" + location.getY() + " &fZ: &d" + location.getZ() + " &FBiom: &d" + location.getBlock().getBiome();
+        } else {
+            return "Wolny";
+        }
     }
 }
