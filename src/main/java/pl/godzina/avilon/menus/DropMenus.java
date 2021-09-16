@@ -5,16 +5,19 @@ import me.mattstudios.mfgui.gui.guis.Gui;
 import me.mattstudios.mfgui.gui.guis.GuiItem;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
 import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.basic.user.User;
 import pl.godzina.avilon.helpers.ChatHelper;
 
-import java.util.Arrays;
-
 public class DropMenus {
-    private AvilonPlugin plugin;
+    private final AvilonPlugin plugin;
+
+    public DropMenus(AvilonPlugin plugin) {
+        this.plugin = plugin;
+    }
+
+
     public void openMain(Player p) {
         Gui gui = new Gui(6, ChatHelper.fixColor("&8>> &dDrop"));
 
@@ -30,6 +33,7 @@ public class DropMenus {
         });
         gui.open(p);
     }
+
     public void openStone(Player p) {
         Gui gui = new Gui(6, ChatHelper.fixColor("&7Drop -> Stone"));
 

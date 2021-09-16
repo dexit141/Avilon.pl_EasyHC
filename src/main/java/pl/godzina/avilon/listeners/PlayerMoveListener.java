@@ -3,14 +3,16 @@ package pl.godzina.avilon.listeners;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
 import pl.godzina.avilon.AvilonPlugin;
 
-public class PlayerMoveListener {
+public class PlayerMoveListener implements Listener {
     private AvilonPlugin plugin;
 
     public PlayerMoveListener(AvilonPlugin plugin) {
         this.plugin = plugin;
+        this.plugin.getServer().getPluginManager().registerEvents(this, plugin);
     }
     @EventHandler(ignoreCancelled = true)
     public void onPlayerMove(PlayerMoveEvent event) {

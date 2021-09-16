@@ -52,8 +52,8 @@ public class DatabaseProvider {
         }
     }
     public void createTables() {
-        this.executeUpdate("CREATE IF NOT EXISTS avilon_users" +
-                "(id int(16) PRIMARY KEY AUTO_INCREMENT," +
+        this.executeUpdate("CREATE IF NOT EXISTS avilon_users(" +
+                "id int(16) PRIMARY KEY AUTO_INCREMENT," +
                 "uuid text NOT NULL," +
                 "");
     }

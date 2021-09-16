@@ -93,25 +93,25 @@ public class TagManager {
 //        Guild guildSend = CorePlugin.getInstance().getUserManager().getUser(send).getGuild();
         User userGet = AvilonPlugin.getInstance().getUserManager().getUser(get);
         if (get.hasPermission("avilon.root")) {
-            return "&4&lCEO &c";
+            return "&4&lCEO &r&c";
         }
         if (get.hasPermission("avilon.dev")) {
-            return "&3&lDEV &b";
+            return "&3&lDEV &r&b";
         }
         if (get.hasPermission("avilon.headadmin")) {
-            return "&4&lH@ &c";
+            return "&4&lH@ &r&c";
         }
         if (get.hasPermission("avilon.admin")) {
-            return "&4&lADMIN &c";
+            return "&4&lADMIN &r&c";
         }
         if (get.hasPermission("avilon.moderator")) {
-            return "&2&lMOD &a";
+            return "&2&lMOD &r&a";
         }
         if (get.hasPermission("avilon.helper")) {
-            return "&3&lHELPER &b";
+            return "&3&lHELPER &r&b";
         }
-        if (!send.hasPermission("avilon.incognito.bypass")) {
-            if (userGet.isIncognito()) {
+//        if (!send.hasPermission("avilon.incognito.bypass")) {
+//            if (userGet.isIncognito()) {
 //                if (userGet.getGuild() != null) {
 //                    if (guildSend == null) {
 //                        return "&8[&c???&8] &f&k";
@@ -123,9 +123,9 @@ public class TagManager {
 //                        return "&8[&6???&8] &f&k";
 //                    }
 //                    return "&8[&c???&8] &f&k";
-            } else {
-                return "&k";
-            }
+//            } else {
+//                return "&k";
+//            }
 //        }
 //        if (guildGet == null) {
 //            return "";
@@ -141,9 +141,6 @@ public class TagManager {
 //        }
 //        return "&8[&c" + guildGet.getTag() + "&8] &f";
 //    }
-
-            return "";
-        }
         return "";
     }
 
