@@ -38,7 +38,7 @@ public class Home {
     }
     public String isClaimed(Player p) {
         if (this.location != null) {
-            return "&aZajęty &8( &fX: &d" + location.getX() + " &fY: &d" + location.getY() + " &fZ: &d" + location.getZ() + " &FBiom: &d" + location.getBlock().getBiome();
+            return ChatHelper.fixColor("&aZajęty &8( &fX: &d" + ChatHelper.round(location.getX(), 2) + " &fY: &d" + ChatHelper.round(location.getY(), 2) + " &fZ: &d" + ChatHelper.round(location.getZ(), 2) + " &FBiom: &d" + location.getBlock().getBiome() + "&8 )");
         } else {
             return "Wolny";
         }

@@ -38,6 +38,7 @@ public class HomeMenus {
                     plugin.getTeleportManager().teleport(p, home.getLocation(), 5);
                 }
             }));
+            open(p);
         });
         gui.setDefaultClickAction(event -> {
             event.setCancelled(true);
