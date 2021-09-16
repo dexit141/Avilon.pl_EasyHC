@@ -23,6 +23,8 @@ public class DropMenus {
         gui.setItem(20, ItemBuilder.from(Material.STONE).setName(ChatHelper.fixColor("&8>> &fDrop z kamienia.")).asGuiItem(event -> {
             openStone(p);
         }));
+        gui.setItem(22, ItemBuilder.from(Material.ENDER_CHEST).setName(ChatHelper.fixColor("&8>> &fDrop z case")).asGuiItem());
+        gui.setItem(24, ItemBuilder.from(Material.MOSSY_COBBLESTONE).setName(ChatHelper.fixColor("&8>> &fDrop z cobblex")).asGuiItem());
         gui.setDefaultClickAction(event -> {
             event.setCancelled(true);
         });
