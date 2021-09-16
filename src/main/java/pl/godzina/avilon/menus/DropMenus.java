@@ -37,7 +37,7 @@ public class DropMenus {
     }
 
     public void openStone(Player p) {
-        Gui gui = new Gui(6, ChatHelper.fixColor("&d&lDrop &8-> &dDrop Stone"));
+        Gui gui = new Gui(6, ChatHelper.fixColor("&d&lDrop &8>> &dDrop Stone"));
 
         gui.getFiller().fillBorder(new GuiItem(new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15)));
         User user = AvilonPlugin.getInstance().getUserManager().getUser(p);
@@ -49,7 +49,7 @@ public class DropMenus {
                                     "&8>> &fSzansa na wypadnięcie &d" + drop.getChance(), "&f%",
                                     "&8>> &fFortuna: " + (drop.isFortune() ? "&aON" : "&cOFF"),
                                     "&8>> &fAktywny: " + (user.isDisabledDrop(drop) ? "&aTAK" : "&CNIE"),
-                                    "&8>> &fWypada pomiędzy &d" + drop.getMinHeight(), "&f, a &d" + drop.getMaxHeight(),
+                                    "&8>> &fWypada pomiędzy &d" + drop.getMinHeight(), "&f, a &d" + drop.getMaxHeight(), " ",
                                     "&fKliknij &a&lLPM &faby &awłączyć&8/&cwyłączyć &fdrop")))
                     .asGuiItem(event -> {
                         if (user.isDisabledDrop(drop)) {

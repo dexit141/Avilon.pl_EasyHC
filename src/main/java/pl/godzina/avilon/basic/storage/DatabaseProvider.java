@@ -52,10 +52,24 @@ public class DatabaseProvider {
         }
     }
     public void createTables() {
-        this.executeUpdate("CREATE IF NOT EXISTS avilon_users(" +
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_users (" +
                 "id int(16) PRIMARY KEY AUTO_INCREMENT," +
                 "uuid text NOT NULL," +
-                "");
+                "name text NOT NULL," +
+                "ip text NOT NULL)");
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_enderchest (" +
+                "id int(16) PRIMARY KEY AUTO_INCREMENT," +
+                "name text NOT NULL," +
+                "owner text NOT NULL," +
+                "lore text NOT NULL," +
+                "permission text NOT NULL," +
+                "slots int NOT NULL)");
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_home (" +
+                "id int(16) PRIMARY KEY AUTO_INCREMENT," +
+                "owner text NOT NULL," +
+                "location text NOT NULL," +
+                "permission text NOT NULL," +
+                "slots int NOT NULL)");
     }
 
     public ResultSet query(String query) {

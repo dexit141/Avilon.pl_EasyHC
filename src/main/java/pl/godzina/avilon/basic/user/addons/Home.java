@@ -17,7 +17,7 @@ public class Home {
 
     private final User owner;
     private final String name;
-    private Location homeLoc;
+    private Location location;
     private final String permission;
     private final int slots;
 
@@ -29,7 +29,7 @@ public class Home {
     }
     public Home(ResultSet rs) throws SQLException {
         this.owner = AvilonPlugin.getInstance().getUserManager().getUser(UUID.fromString(rs.getString("owner")));
-        this.homeLoc = LocationHelper.locFromString(rs.getString("location"));
+        this.location = LocationHelper.locFromString(rs.getString("location"));
         this.slots = rs.getInt("slots");
         this.permission = rs.getString("permission");
         this.name = rs.getString("name");
