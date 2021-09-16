@@ -48,14 +48,10 @@ public class DropMenus {
                             .setLore(ChatHelper.fixColor(Arrays.asList(" ",
                                     "&8>> &fSzansa na wypadnięcie &d" + drop.getChance(), "&f%",
                                     "&8>> &fFortuna: " + (drop.isFortune() ? "&aON" : "&cOFF"),
-                                    "&8>> &fAktywny: " + (user.isDisabledDrop(drop) ? "&aTAK" : "&CNIE")
-                            ), "&8>> &fWypada pomiędzy &d" + drop.getMinHeight(), "&f, a &d" + drop.getMaxHeight()),
-                    " ",
-                    "&fKliknij &a&lLPM &faby &awłączyć&8/&cwyłączyć &fdrop");
-
-
-
-            (!user.isDisabledDrop(drop)).asGuiItem(event -> {
+                                    "&8>> &fAktywny: " + (user.isDisabledDrop(drop) ? "&aTAK" : "&CNIE"),
+                                    "&8>> &fWypada pomiędzy &d" + drop.getMinHeight(), "&f, a &d" + drop.getMaxHeight(),
+                                    "&fKliknij &a&lLPM &faby &awłączyć&8/&cwyłączyć &fdrop")))
+                    .asGuiItem(event -> {
                         if (user.isDisabledDrop(drop)) {
                             user.removeDisabledDrop(drop);
                         } else {
