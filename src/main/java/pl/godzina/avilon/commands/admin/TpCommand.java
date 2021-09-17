@@ -13,7 +13,7 @@ public class TpCommand extends PlayerCommand {
 
     @Override
     public boolean onExecute(Player p, String label, String[] args) {
-        if (args.length < 1) this.correctUsage(p, label);
+        if (args.length < 1) return this.correctUsage(p, label);
 
         Player other = Bukkit.getPlayerExact(args[0]);
         if (other == null) {

@@ -23,6 +23,7 @@ public class User {
     private final UUID uuid;
     private String name, ip;
     private boolean vanish, incognito, cobbleDrop, messagesDrop, god;
+    private int godApple, goldenApple, pearl, snowBall, eggs;
 
     private List<CustomEnderchest> cec = new ArrayList<>();
     private List<Home> homes = new ArrayList<>();
@@ -34,6 +35,12 @@ public class User {
         this.name = p.getName();
 
         this.ip = p.getAddress().getAddress().getHostAddress();
+
+//        this.godApple = 0;
+//        this.goldenApple = 0;
+//        this.pearl = 0;
+//        this.snowBall = 0;
+//        this.eggs = 0;
 
         //Vanish oraz Incognito
 
@@ -49,6 +56,11 @@ public class User {
         this.uuid = UUID.fromString(rs.getString("uuid"));
         this.ip = rs.getString("ip");
         this.name = rs.getString("name");
+//        this.godApple = rs.getInt("godApple");
+//        this.goldenApple = rs.getInt("goldenApple");
+//        this.pearl = rs.getInt("pearl");
+//        this.snowBall = rs.getInt("snowBall");
+//        this.eggs = rs.getInt("eggs");
     }
 
     public void setupAddons() {

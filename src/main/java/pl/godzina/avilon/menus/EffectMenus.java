@@ -137,7 +137,7 @@ public class EffectMenus {
                                 ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fNie posiadasz wymaganych przedmiotów");
                             }
                         }));
-        gui.setItem(16,
+        gui.setItem(25,
                 ItemBuilder.from(Material.CARROT)
                         .setName(ChatHelper.fixColor("&dHaste 3"))
                         .setLore(ChatHelper.fixColor(Arrays.asList(
@@ -156,7 +156,7 @@ public class EffectMenus {
                                 ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fNie posiadasz wymaganych przedmiotów");
                             }
                         }));
-        gui.setItem(25,
+        gui.setItem(27,
                 ItemBuilder.from(Material.MILK_BUCKET)
                         .setName(ChatHelper.fixColor("&dCzyszczenie wszystkich efektów."))
                         .setLore(ChatHelper.fixColor(Arrays.asList(
@@ -175,7 +175,7 @@ public class EffectMenus {
                                 ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fNie posiadasz wymaganych przedmiotów");
                             }
                         }));
-        gui.setItem(27,
+        gui.setItem(29,
                 ItemBuilder.from(Material.CARROT)
                         .setName(ChatHelper.fixColor("&dWidzenie w ciemnosci."))
                         .setLore(ChatHelper.fixColor(Arrays.asList(

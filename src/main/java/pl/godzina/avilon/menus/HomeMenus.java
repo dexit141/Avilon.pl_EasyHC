@@ -33,12 +33,16 @@ public class HomeMenus {
             gui.setItem(home.getSlots(), ItemBuilder.from(guiItem).asGuiItem(event -> {
                 if (event.getClick() == ClickType.RIGHT) {
                         home.setLocation(p.getLocation());
-                        ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fPomyslnie ustawiles home!");
+                        ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fPomyslnie &dustawiles &fdom!");
                 } else if (event.getClick() == ClickType.LEFT){
-                    plugin.getTeleportManager().teleport(p, home.getLocation(), 5);
+                    if (home.getLocation() != null) {
+                        plugin.getTeleportManager().teleport(p, home.getLocation(), 5);
+                    } else {
+                        ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fAktualnie &d" + home.getName() + " &fjest pusty! &fKliknij &a&lPPM &faby ustawić dom!");
+                    }
                 }
+                open(p);
             }));
-            open(p);
         });
         gui.setDefaultClickAction(event -> {
             event.setCancelled(true);
