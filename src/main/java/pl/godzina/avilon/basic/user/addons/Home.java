@@ -39,8 +39,10 @@ public class Home {
     public String isClaimed(Player p) {
         if (this.location != null) {
             return ChatHelper.fixColor("&aZajęty &8( &fX: &d" + ChatHelper.round(location.getX(), 2) + " &fY: &d" + ChatHelper.round(location.getY(), 2) + " &fZ: &d" + ChatHelper.round(location.getZ(), 2) + " &FBiom: &d" + location.getBlock().getBiome() + "&8 )");
+        } else if (owner.getPlayer().hasPermission("avilon.youtuber")) {
+            return ChatHelper.fixColor("&cUKRYTE &8( &fdla bezpieczenstwa twojej bazy :) &8)");
         } else {
-            return "Wolny";
+            return "Miejsce wolne";
         }
     }
 }

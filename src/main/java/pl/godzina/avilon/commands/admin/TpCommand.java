@@ -20,6 +20,6 @@ public class TpCommand extends PlayerCommand {
             return ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fPodany gracz jest offline.");
         }
         p.teleport(other);
-        return ChatHelper.sendMessage(p, "&d&LAvilon &8>> &aPomyslnie przeteleportowales sie do gracza: &d" + other);
+        return ChatHelper.sendMessage(p, "&d&LAvilon &8>> &aPomyslnie przeteleportowales sie do gracza: &d" + other.getName());
     }
 }

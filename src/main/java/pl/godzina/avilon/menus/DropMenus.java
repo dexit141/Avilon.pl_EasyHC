@@ -50,7 +50,7 @@ public class DropMenus {
                                     "&8>> &fFortuna: " + (drop.isFortune() ? "&aON" : "&cOFF"),
                                     "&8>> &fAktywny: " + (user.isDisabledDrop(drop) ? "&aTAK" : "&CNIE"),
                                     "&8>> &fWypada pomiędzy &d" + drop.getMinHeight() + "&f, a &d" + drop.getMaxHeight(), " ",
-                                    "&fKliknij &a&lLPM &faby &awłączyć&8/&cwyłączyć &fdrop")))
+                                    "&fKliknij &a&lLPM &faby &awłączyć&8/&cwyłączyć &fdrop"))).glow(!user.isDisabledDrop(drop))
                     .asGuiItem(event -> {
                         if (user.isDisabledDrop(drop)) {
                             user.removeDisabledDrop(drop);
@@ -68,6 +68,7 @@ public class DropMenus {
         }));
         gui.setItem(43, ItemBuilder.from(Material.COBBLESTONE).setName(ChatHelper.fixColor("&8>> &FKliknij aby &7zmienić &fstatus cobblestone")).setLore(ChatHelper.fixColor("&fAktualny &7status&f cobbla " + (user.isCobbleDrop() ? "&aON" : "&cOFF"))).asGuiItem(event -> {
             user.setCobbleDrop(!user.isCobbleDrop());
+            openStone(p);
         }));
         gui.setItem(49, ItemBuilder.from(Material.BARRIER).setName(ChatHelper.fixColor("&cPowrót")).asGuiItem(event -> {
             openMain(p);

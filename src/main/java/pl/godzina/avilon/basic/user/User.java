@@ -24,6 +24,7 @@ public class User {
     private String name, ip;
     private boolean vanish, incognito, cobbleDrop, messagesDrop, god;
     private int godApple, goldenApple, pearl, snowBall, eggs;
+    private int stars;
 
     private List<CustomEnderchest> cec = new ArrayList<>();
     private List<Home> homes = new ArrayList<>();
@@ -33,6 +34,7 @@ public class User {
         this.uuid = p.getUniqueId();
 
         this.name = p.getName();
+        this.stars = 1000;
 
         this.ip = p.getAddress().getAddress().getHostAddress();
 
@@ -61,6 +63,7 @@ public class User {
 //        this.pearl = rs.getInt("pearl");
 //        this.snowBall = rs.getInt("snowBall");
 //        this.eggs = rs.getInt("eggs");
+        this.stars = rs.getInt("stars");
     }
 
     public void setupAddons() {

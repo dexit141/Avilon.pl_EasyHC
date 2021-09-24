@@ -70,6 +70,9 @@ public class DatabaseProvider {
                 "location text NOT NULL," +
                 "permission text NOT NULL," +
                 "slots int NOT NULL)");
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_guilds (" +
+                "id int(16) PRIMARY KEY AUTO_INCREMENT," +
+                "");
     }
 
     public ResultSet query(String query) {

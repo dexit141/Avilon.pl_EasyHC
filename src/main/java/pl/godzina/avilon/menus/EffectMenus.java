@@ -194,7 +194,7 @@ public class EffectMenus {
                                 ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fNie posiadasz wymaganych przedmiotów");
                             }
                         }));
-        gui.setItem(30,
+        gui.setItem(31,
                 ItemBuilder.from(Material.DIAMOND_PICKAXE)
                         .setName(ChatHelper.fixColor("&fPakiet efektów: &dKOPACZ"))
                         .setLore(ChatHelper.fixColor(Arrays.asList(

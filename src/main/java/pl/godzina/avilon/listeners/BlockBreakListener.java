@@ -1,6 +1,7 @@
 package pl.godzina.avilon.listeners;
 
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -24,10 +25,16 @@ public class BlockBreakListener implements Listener {
         Block b = e.getBlock();
         if (e.isCancelled())
             return;
-        if (!p.getGameMode().equals(GameMode.SURVIVAL))
+        if (p.getGameMode().equals(GameMode.SURVIVAL)) {
+            if (b.getType() == Material.STONE) {
+                this.plugin.getDropManager().breakBlock(b, p, p.getItemInHand());
+                p.giveExp(3);
+                e.setCancelled(true);
+            } else {
+                return;
+            }
+        } else {
             return;
-        this.plugin.getDropManager().breakBlock(b, p, p.getItemInHand());
-        p.giveExp(3);
-        e.setCancelled(true);
+        }
     }
 }

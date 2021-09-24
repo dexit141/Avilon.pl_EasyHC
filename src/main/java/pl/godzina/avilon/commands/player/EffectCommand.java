@@ -12,8 +12,7 @@ public class EffectCommand extends PlayerCommand {
 
     @Override
     public boolean onExecute(Player p, String label, String[] args) {
-        EffectMenus effectMenus = new EffectMenus(plugin);
-        effectMenus.open(p);
+        new EffectMenus(plugin).open(p);
         return true;
     }
 }

@@ -25,7 +25,7 @@ public class HelpopCommand extends PlayerCommand{
         String message = StringUtils.join(args, " ", 0, args.length);
 
         if (HelpopCommand.time.containsKey(p.getUniqueId()) && System.currentTimeMillis() < HelpopCommand.time.get(p.getUniqueId())) {
-            return ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fMusisz odczekac &d" + time.get(p.getUniqueId()) + "&fsekund, przed następnym wysłaniem");
+            return ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fMusisz odczekac &d" + ChatHelper.round(time.get(p.getUniqueId()), 2) + "&fsekund, przed następnym wysłaniem");
         }
         HelpopCommand.time.put(p.getUniqueId(), System.currentTimeMillis() + TimeUnit.SECONDS.toMillis(60L));
         Bukkit.broadcast(ChatHelper.fixColor("\n &8( &d&lHELPOP &8) &f" + p.getName() + " &8>> &4" + message + "\n"), "avilon.helpop");

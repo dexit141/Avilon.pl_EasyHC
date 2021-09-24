@@ -32,8 +32,12 @@ public class HomeMenus {
                             " &8>> &fStatus home: " + home.isClaimed(p), "","&8>> &fPosiadasz dostęp: " + (p.hasPermission(home.getPermission()) ? "&a&lTAK" : "&c&lNIE"), "&8>> &fKliknij &a&lLPM &faby teleportowac sie do home", "&8>> &fKliknij &a&lPPM &faby ustawic home!"))).build();
             gui.setItem(home.getSlots(), ItemBuilder.from(guiItem).asGuiItem(event -> {
                 if (event.getClick() == ClickType.RIGHT) {
+                    if (p.hasPermission(home.getPermission())) {
                         home.setLocation(p.getLocation());
                         ChatHelper.sendMessage(p, "&d&lAvilon &8>> &fPomyslnie &dustawiles &fdom!");
+                    } else {
+                        ChatHelper.sendMessage(p, "&8>> &cNie posiadasz dostępu do tego home.");
+                    }
                 } else if (event.getClick() == ClickType.LEFT){
                     if (home.getLocation() != null) {
                         plugin.getTeleportManager().teleport(p, home.getLocation(), 5);
