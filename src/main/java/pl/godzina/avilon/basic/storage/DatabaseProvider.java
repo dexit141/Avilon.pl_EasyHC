@@ -55,7 +55,6 @@ public class DatabaseProvider {
         this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_users (" +
                 "id int(16) PRIMARY KEY AUTO_INCREMENT," +
                 "uuid text NOT NULL," +
-                "name text NOT NULL," +
                 "ip text NOT NULL)");
         this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_enderchest (" +
                 "id int(16) PRIMARY KEY AUTO_INCREMENT," +
@@ -70,9 +69,11 @@ public class DatabaseProvider {
                 "location text NOT NULL," +
                 "permission text NOT NULL," +
                 "slots int NOT NULL)");
-        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_guilds (" +
-                "id int(16) PRIMARY KEY AUTO_INCREMENT," +
-                "");
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_guilds (id int(16) PRIMARY KEY AUTO_INCREMENT,tag varchar(5) NOT NULL,name varchar(32) NOT NULL,owner text NOT NULL,guildHome text NOT NULL,cuboidX int(11) NOT NULL,cuboidZ int(11) NOT NULL,cuboidSize int(11) NOT NULL,lives int(11) NOT NULL,stars int(11) NOT NULL,kills int(11) NOT NULL,deaths int(11) NOT NULL,expireDate bigint NOT NULL,createDate bigint NOT NULL,lastAttackDate bigint NOT NULL)");
+
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_deputies (id int(16) PRIMARY KEY AUTO_INCREMENT,uuid text NOT NULL,guild varchar(5) NOT NULL)");
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_allies (id int(16) PRIMARY KEY AUTO_INCREMENT,guildA varchar(5) NOT NULL,guildB varchar(5) NOT NULL)");
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS easyhc_members (id int(16) PRIMARY KEY AUTO_INCREMENT,uuid text NOT NULL,guild varchar(5) NOT NULL,build int NOT NULL,destroy int NOT NULL,addSize int NOT NULL,kick int NOT NULL,openChest int NOT NULL,changePvp int NOT NULL,teleport int NOT NULL,manage int NOT NULL,destroyObsidian int NOT NULL,destroyBeacon int NOT NULL,buildTnt int NOT NULL,alliance int NOT NULL,invite int NOT NULL,farmers int NOT NULL,fill int NOT NULL)");
     }
 
     public ResultSet query(String query) {

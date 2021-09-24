@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pl.godzina.avilon.basic.chat.addons.ChatManager;
 import pl.godzina.avilon.basic.configuration.DropSettings;
 import pl.godzina.avilon.basic.drop.DropManager;
+import pl.godzina.avilon.basic.ranking.RankingManager;
 import pl.godzina.avilon.basic.storage.DatabaseProvider;
 import pl.godzina.avilon.basic.teleport.TeleportManager;
 import pl.godzina.avilon.basic.user.UserManager;
@@ -25,6 +26,7 @@ public class AvilonPlugin extends JavaPlugin {
     private TeleportManager teleportManager;
     private DropManager dropManager;
     private ChatManager chatManager;
+    private RankingManager rankingManager;
 
 
     @Override

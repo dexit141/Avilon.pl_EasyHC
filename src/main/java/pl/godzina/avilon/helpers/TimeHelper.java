@@ -51,7 +51,7 @@ public enum TimeHelper
         return getTimeInt() < 1600 || getTimeInt() > 2200;
     }
 
-    private TimeUtil(final int time, final int timeMulti) {
+    private TimeHelper(final int time, final int timeMulti) {
         this.time = time;
         this.timeMulti = timeMulti;
     }
@@ -77,69 +77,69 @@ public enum TimeHelper
     }
 
     public static String getTime(final long time) {
-        return TimeUtil.timeFormat.format(new Date(time));
+        return TimeHelper.timeFormat.format(new Date(time));
     }
 
     public static String getTime2(final long l) {
         if (l < 60L) {
-            return l + TimeUtil.sec;
+            return l + TimeHelper.sec;
         }
         final int minutes = (int)(l / 60L);
         final int s = 60 * minutes;
         final int secondsLeft = (int)(l - s);
         if (minutes < 60) {
             if (secondsLeft > 0) {
-                return minutes + TimeUtil.min + " " + secondsLeft + TimeUtil.sec;
+                return minutes + TimeHelper.min + " " + secondsLeft + TimeHelper.sec;
             }
-            return minutes + TimeUtil.min;
+            return minutes + TimeHelper.min;
         }
         else {
             if (minutes < 1440) {
                 String time = "";
                 final int hours = minutes / 60;
-                time = hours + TimeUtil.hr;
+                time = hours + TimeHelper.hr;
                 final int inMins = 60 * hours;
                 final int left = minutes - inMins;
                 if (left >= 1) {
-                    time = time + " " + left + TimeUtil.min;
+                    time = time + " " + left + TimeHelper.min;
                 }
                 if (secondsLeft > 0) {
-                    time = time + " " + secondsLeft + TimeUtil.sec;
+                    time = time + " " + secondsLeft + TimeHelper.sec;
                 }
                 return time;
             }
             String time = "";
             final int days = minutes / 1440;
-            time = days + TimeUtil.day;
+            time = days + TimeHelper.day;
             final int inMins = 1440 * days;
             final int leftOver = minutes - inMins;
             if (leftOver >= 1) {
                 if (leftOver < 60) {
-                    time = time + " " + leftOver + TimeUtil.min;
+                    time = time + " " + leftOver + TimeHelper.min;
                 }
                 else {
                     final int hours2 = leftOver / 60;
-                    time = time + " " + hours2 + TimeUtil.hr;
+                    time = time + " " + hours2 + TimeHelper.hr;
                     final int hoursInMins = 60 * hours2;
                     final int minsLeft = leftOver - hoursInMins;
                     if (leftOver >= 1) {
-                        time = time + " " + minsLeft + TimeUtil.min;
+                        time = time + " " + minsLeft + TimeHelper.min;
                     }
                 }
             }
             if (secondsLeft > 0) {
-                time = time + " " + secondsLeft + TimeUtil.sec;
+                time = time + " " + secondsLeft + TimeHelper.sec;
             }
             return time;
         }
     }
 
     static {
-        TimeUtil.timeFormat = new SimpleDateFormat("HH:mm:ss");
-        TimeUtil.sec = "sek";
-        TimeUtil.min = "min";
-        TimeUtil.hr = "godz";
-        TimeUtil.day = "d";
+        TimeHelper.timeFormat = new SimpleDateFormat("HH:mm:ss");
+        TimeHelper.sec = "sek";
+        TimeHelper.min = "min";
+        TimeHelper.hr = "godz";
+        TimeHelper.day = "d";
     }
 }
 
