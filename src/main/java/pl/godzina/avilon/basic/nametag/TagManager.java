@@ -54,7 +54,6 @@ public class TagManager {
             this.packet.getStrings().write(1, name ); //set displayname
             this.packet.getStrings().write(2, ChatHelper.fixColor(prefix(player1, player2)));
             this.packet.getStrings().write(3, ChatHelper.fixColor(suffix(player1, player2)));
-//            this.packet.getStrings().write(4, ChatHelper.translate("elo"));
 
             this.packet.getIntegers().write(0, -1); //set color, -1 = no color
             this.packet.getIntegers().write(1, 2); //set mode, 0=create team
@@ -94,6 +93,24 @@ public class TagManager {
         Guild guildGet = AvilonPlugin.getInstance().getUserManager().getUser(get).getGuild();
         Guild guildSend = AvilonPlugin.getInstance().getUserManager().getUser(send).getGuild();
         User userGet = AvilonPlugin.getInstance().getUserManager().getUser(get);
+
+        if (!send.hasPermission("avilon.incognito.bypass")) {
+            if (userGet.isIncognito()) {
+                if (userGet.getGuild() != null) {
+                    if (guildSend == null)
+                        return "&8[&c?&8] &f&k";
+                    else if (guildGet.getTag().equalsIgnoreCase(guildSend.getTag()))
+                        return "&8[&a" + guildGet.getTag() + "&8] &f";
+                    else if (guildSend.getAlly().contains(guildGet))
+                        return "&8[&6" + guildGet.getTag() + "&8] &f";
+
+                    return "&8[&c?&8] &f&k";
+                } else {
+                    return "&f&k";
+                }
+            }
+        }
+
         if (get.hasPermission("avilon.root")) {
             return "&4&lCEO &r&c";
         }
@@ -112,34 +129,17 @@ public class TagManager {
         if (get.hasPermission("avilon.helper")) {
             return "&3&lHELPER &r&b";
         }
-        if (!send.hasPermission("avilon.incognito.bypass")) {
-            if (userGet.isIncognito()) {
-                if (userGet.getGuild() != null) {
-                    if (guildSend == null)
-                        return "&8[&c?&8] &f&k";
-                    else if (guildGet.getTag().equalsIgnoreCase(guildSend.getTag()))
-                        return "&8[&a" + guildGet.getTag() + "&8] &f";
-                    else if (guildSend.getAlly().contains(guildGet))
-                        return "&8[&6" + guildGet.getTag() + "&8] &f";
 
-                    return "&8[&c?&8] &f&k";
-                } else {
-                    return "&f&k";
-                }
-            }
-
-            if (guildGet == null)
-                return "";
-            else if (guildSend == null)
-                return "&8[&c" + guildGet.getTag() + "&8] &f";
-            else if (guildGet.getTag().equalsIgnoreCase(guildSend.getTag()))
-                return "&8[&a" + guildGet.getTag() + "&8] &f";
-            else if (guildSend.getAlly().contains(guildGet))
-                return "&8[&6" + guildGet.getTag() + "&8] &f";
-
+        if (guildGet == null)
+            return "";
+        else if (guildSend == null)
             return "&8[&c" + guildGet.getTag() + "&8] &f";
-        }
-        return "";
+        else if (guildGet.getTag().equalsIgnoreCase(guildSend.getTag()))
+            return "&8[&a" + guildGet.getTag() + "&8] &f";
+        else if (guildSend.getAlly().contains(guildGet))
+            return "&8[&6" + guildGet.getTag() + "&8] &f";
+
+        return "&8[&c" + guildGet.getTag() + "&8] &f";
     }
 
     public String suffix(Player get, Player send) {
