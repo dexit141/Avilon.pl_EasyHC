@@ -73,7 +73,7 @@ public class DatabaseProvider {
 
         this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_deputies (id int(16) PRIMARY KEY AUTO_INCREMENT,uuid text NOT NULL,guild varchar(5) NOT NULL)");
         this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_allies (id int(16) PRIMARY KEY AUTO_INCREMENT,guildA varchar(5) NOT NULL,guildB varchar(5) NOT NULL)");
-        this.executeUpdate("CREATE TABLE IF NOT EXISTS easyhc_members (id int(16) PRIMARY KEY AUTO_INCREMENT,uuid text NOT NULL,guild varchar(5) NOT NULL,build int NOT NULL,destroy int NOT NULL,addSize int NOT NULL,kick int NOT NULL,openChest int NOT NULL,changePvp int NOT NULL,teleport int NOT NULL,manage int NOT NULL,destroyObsidian int NOT NULL,destroyBeacon int NOT NULL,buildTnt int NOT NULL,alliance int NOT NULL,invite int NOT NULL,farmers int NOT NULL,fill int NOT NULL)");
+        this.executeUpdate("CREATE TABLE IF NOT EXISTS avilon_members (id int(16) PRIMARY KEY AUTO_INCREMENT,uuid text NOT NULL,guild varchar(5) NOT NULL,build int NOT NULL,destroy int NOT NULL,addSize int NOT NULL,kick int NOT NULL,openChest int NOT NULL,changePvp int NOT NULL,teleport int NOT NULL,manage int NOT NULL,destroyObsidian int NOT NULL,destroyBeacon int NOT NULL,buildTnt int NOT NULL,alliance int NOT NULL,invite int NOT NULL,farmers int NOT NULL,fill int NOT NULL)");
     }
 
     public ResultSet query(String query) {

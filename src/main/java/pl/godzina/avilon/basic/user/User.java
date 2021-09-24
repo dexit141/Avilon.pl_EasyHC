@@ -7,6 +7,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.basic.drop.Drop;
+import pl.godzina.avilon.basic.guild.Guild;
 import pl.godzina.avilon.basic.user.addons.CustomEnderchest;
 import pl.godzina.avilon.basic.user.addons.Home;
 import pl.godzina.avilon.helpers.LocationHelper;
@@ -25,6 +26,7 @@ public class User {
     private boolean vanish, incognito, cobbleDrop, messagesDrop, god;
     private int godApple, goldenApple, pearl, snowBall, eggs;
     private int stars;
+    private Guild guild;
 
     private List<CustomEnderchest> cec = new ArrayList<>();
     private List<Home> homes = new ArrayList<>();

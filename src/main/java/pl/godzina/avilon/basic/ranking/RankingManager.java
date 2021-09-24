@@ -1,5 +1,6 @@
 package pl.godzina.avilon.basic.ranking;
 
+import pl.godzina.avilon.AvilonPlugin;
 import pl.godzina.avilon.basic.guild.Guild;
 import pl.godzina.avilon.basic.ranking.comparators.GuildComparator;
 import pl.godzina.avilon.basic.ranking.comparators.UserComparator;
@@ -11,8 +12,10 @@ import java.util.List;
 public class RankingManager {
     private final List<User> usersRankings;
     private final List<Guild> guildsRankings;
+    private final AvilonPlugin plugin;
 
-    public RankingManager() {
+    public RankingManager(AvilonPlugin plugin) {
+        this.plugin = plugin;
         this.usersRankings = new LinkedList<User>();
         this.guildsRankings = new LinkedList<Guild>();
     }

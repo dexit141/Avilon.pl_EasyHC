@@ -18,7 +18,7 @@ public class GuildCommand extends PlayerCommand
     private final LinkedHashSet<CustomCommand> subCommands;
 
     public GuildCommand(final AvilonPlugin plugin) {
-        super(plugin, "g", "/g", "Komendy gildyjne", "avilon.player", "gildia", "guild", "guilds");
+        super(plugin, "g", "/g", "avilon.player", "gildia", "guild", "guilds");
         (this.subCommands = new LinkedHashSet<CustomCommand>()).add(new GuildCreateCommand(plugin));
     }
 

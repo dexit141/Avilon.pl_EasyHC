@@ -52,18 +52,18 @@ public class GuildCreateCommand extends PlayerCommand {
         if (!this.guildManager.canCreateGuildByGuild(p.getLocation())) {
             return ChatHelper.sendMessage(p, GuildMessages.guildIsTooCloseToOtherGuild);
         }
-        String it = plugin.getConfig().getString("guild.cost.normalcost");
-        if (p.hasPermission("avilon.guild.admin")) {
-            it = "1:0-0:nic;";
-        }
-        else if (p.hasPermission("avilon.svip.itemy")) {
-            it = plugin.getConfig().getString("guild.cost.premiumcost");
-        }
-        if (!ItemHelper.checkItems(p, it, 1)) {
-            ItemHelper.getItem(p, it, 1);
-            return true;
-        }
-        ItemHelper.removeItems(p, it, 1);
+//        String it = plugin.getConfig().getString("guild.cost.normalcost");
+//        if (p.hasPermission("avilon.guild.admin")) {
+//            it = "1:0-0:nic;";
+//        }
+//        else if (p.hasPermission("avilon.svip.itemy")) {
+//            it = plugin.getConfig().getString("guild.cost.premiumcost");
+//        }
+//        if (!ItemHelper.checkItems(p, it, 1)) {
+//            ItemHelper.getItem(p, it, 1);
+//            return true;
+//        }
+//        ItemHelper.removeItems(p, it, 1);
         Location home = new Location(p.getWorld(), p.getLocation().getX(), 31.5, p.getLocation().getZ());
         User u = this.userManager.getUser(p);
         Guild guild = this.guildManager.createGuild(tag.toLowerCase(), name, u, home);

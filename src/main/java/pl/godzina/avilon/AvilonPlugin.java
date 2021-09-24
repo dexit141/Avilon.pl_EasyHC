@@ -42,6 +42,7 @@ public class AvilonPlugin extends JavaPlugin {
         this.databaseProvider = new DatabaseProvider(this);
         this.databaseProvider.createTables();
         this.guildManager = new GuildManager(this);
+        this.rankingManager = new RankingManager(this);
         getLogger().info("Plugin by: 15godzina, Licensed to: Avilon.pl ( getsector#0501 )");
         DropSettings.reloadConfig();
         this.dropManager.setup();

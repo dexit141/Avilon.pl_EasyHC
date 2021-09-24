@@ -7,3 +7,7 @@ mysql:
 
 drop:
   turbodrop: 0L
+guild:
+  cost:
+    normalCost: "133:0-64:Bloki szmaragdu;57:0-64:Bloki diamentu;41:0-64:Bloki zlota;173:0-64:Bloki wegla;49:0-64:Obsydian;145:0-32:Kowadla;46:0-64:TNT;47:0-64:Biblioteczki;165:0-32:Bloki szlamu;"
+    premiumCost: "133:0-32:Bloki szmaragdu;57:0-32:Bloki diamentu;41:0-32:Bloki zlota;173:0-32:Bloki wegla;49:0-32:Obsydian;145:0-16:Kowadla;46:0-32:TNT;47:0-32:Biblioteczki;165:0-16:Bloki szlamu;"
