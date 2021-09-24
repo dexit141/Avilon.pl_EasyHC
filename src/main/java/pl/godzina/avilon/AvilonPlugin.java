@@ -40,6 +40,7 @@ public class AvilonPlugin extends JavaPlugin {
         this.chatManager = new ChatManager(this);
         this.teleportManager = new TeleportManager(this);
         this.databaseProvider = new DatabaseProvider(this);
+        this.databaseProvider.createTables();
         this.guildManager = new GuildManager(this);
         getLogger().info("Plugin by: 15godzina, Licensed to: Avilon.pl ( getsector#0501 )");
         DropSettings.reloadConfig();

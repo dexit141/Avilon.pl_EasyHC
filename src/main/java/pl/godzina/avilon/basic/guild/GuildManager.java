@@ -19,8 +19,8 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class GuildManager {
-    private AvilonPlugin plugin;
-    private Map<String, Guild> guilds;
+    private final AvilonPlugin plugin;
+    private final Map<String, Guild> guilds;
 
     public GuildManager(AvilonPlugin plugin) {
         this.guilds = new ConcurrentHashMap<String, Guild>();
@@ -33,7 +33,7 @@ public class GuildManager {
         this.guilds.put(tag, g);
         this.plugin.getRankingManager().addRanking(g);
         owner.getPlayer().teleport(g.getCuboid().getCenter().add(0.0, 1.0, 0.0));
-        Bukkit.getScheduler().runTask((Plugin)this.plugin, () -> this.createGuildRoom(g));
+        Bukkit.getScheduler().runTask(this.plugin, () -> this.createGuildRoom(g));
         return g;
     }
 
