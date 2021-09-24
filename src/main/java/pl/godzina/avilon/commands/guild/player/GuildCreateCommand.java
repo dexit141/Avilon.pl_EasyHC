@@ -28,15 +28,15 @@ public class GuildCreateCommand extends PlayerCommand {
 
     @Override
     public boolean onExecute(final Player p, final String label, final String[] args) {
-        final Guild g = this.guildManager.getGuild(p);
+        Guild g = this.guildManager.getGuild(p);
         if (g != null) {
             return ChatHelper.sendMessage(p, GuildMessages.yourGuildNotNull);
         }
         if (args.length != 2) {
             return this.correctUsage(p, label);
         }
-        final String tag = args[0].toUpperCase();
-        final String name = args[1];
+        String tag = args[0].toUpperCase();
+        String name = args[1];
         if (tag.length() > 5 || tag.length() < 2 || name.length() > 32 || name.length() < 4) {
             return ChatHelper.sendMessage(p, GuildMessages.incorrectGuildName);
         }
@@ -64,11 +64,10 @@ public class GuildCreateCommand extends PlayerCommand {
             return true;
         }
         ItemHelper.removeItems(p, it, 1);
-        final Location home = new Location(p.getWorld(), p.getLocation().getX(), 31.5, p.getLocation().getZ());
-        final User u = this.userManager.getUser(p);
-        final Guild guild = this.guildManager.createGuild(tag.toLowerCase(), name, u, home);
-        Guild guild2 = this.guildManager.getGuild(tag);
-        this.plugin.getServer().getOnlinePlayers().forEach(player -> ChatHelper.sendMessage(player, GuildMessages.guildCreateBroadcastNotification.replace("{TAG}", guild2.getTag()).replace("{NAME}", guild2.getName()).replace("{PLAYER}", p.getName())));
+        Location home = new Location(p.getWorld(), p.getLocation().getX(), 31.5, p.getLocation().getZ());
+        User u = this.userManager.getUser(p);
+        Guild guild = this.guildManager.createGuild(tag.toLowerCase(), name, u, home);
+        this.plugin.getServer().getOnlinePlayers().forEach(player -> ChatHelper.sendMessage(player, GuildMessages.guildCreateBroadcastNotification.replace("{TAG}", guild.getTag()).replace("{NAME}", guild.getName()).replace("{PLAYER}", p.getName())));
         return true;
     }
 }
