@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pl.godzina.avilon.basic.chat.addons.ChatManager;
 import pl.godzina.avilon.basic.configuration.DropSettings;
 import pl.godzina.avilon.basic.drop.DropManager;
+import pl.godzina.avilon.basic.guild.GuildManager;
 import pl.godzina.avilon.basic.ranking.RankingManager;
 import pl.godzina.avilon.basic.storage.DatabaseProvider;
 import pl.godzina.avilon.basic.teleport.TeleportManager;
@@ -27,6 +28,7 @@ public class AvilonPlugin extends JavaPlugin {
     private DropManager dropManager;
     private ChatManager chatManager;
     private RankingManager rankingManager;
+    private GuildManager guildManager;
 
 
     @Override
@@ -37,6 +39,7 @@ public class AvilonPlugin extends JavaPlugin {
         this.chatManager = new ChatManager(this);
         this.teleportManager = new TeleportManager(this);
         this.databaseProvider = new DatabaseProvider(this);
+        this.guildManager = new GuildManager(this);
         getLogger().info("Plugin by: 15godzina, Licensed to: Avilon.pl ( getsector#0501 )");
         DropSettings.reloadConfig();
         this.dropManager.setup();
