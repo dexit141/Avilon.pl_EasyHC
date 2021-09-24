@@ -12,6 +12,7 @@ import pl.godzina.avilon.basic.teleport.TeleportManager;
 import pl.godzina.avilon.basic.user.UserManager;
 import pl.godzina.avilon.commands.admin.*;
 import pl.godzina.avilon.commands.api.CommandRegistry;
+import pl.godzina.avilon.commands.guild.GuildCommand;
 import pl.godzina.avilon.commands.player.*;
 import pl.godzina.avilon.listeners.*;
 import pl.godzina.avilon.tasks.ActionbarNotificationTask;
@@ -79,6 +80,7 @@ public class AvilonPlugin extends JavaPlugin {
         cr.register(new ChatCommand(this));
         cr.register(new ClearCommand(this));
         cr.register(new DropCommand(this));
+        cr.register(new GuildCommand(this));
     }
     private void registerRunnable() {
         new TagRefreshTask(this);
