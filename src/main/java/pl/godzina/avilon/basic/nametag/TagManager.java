@@ -23,16 +23,16 @@ public class TagManager {
         try {
             this.packet = ProtocolLibrary.getProtocolManager().createPacket(PacketType.Play.Server.SCOREBOARD_TEAM);
 
-            final String name = player1.getName();
+            String name = player1.getName();
 
-            this.packet.getStrings().write(0, name); //set name
-            this.packet.getStrings().write(1, name); //set displayname
+            this.packet.getStrings().write(0, name);
+            this.packet.getStrings().write(1, name);
             this.packet.getStrings().write(2, ChatHelper.fixColor(prefix(player1, player2)));
             this.packet.getStrings().write(3, ChatHelper.fixColor(suffix(player1, player2)));
 
-            this.packet.getIntegers().write(0, -1); //set color, -1 = no color
-            this.packet.getIntegers().write(1, 0); //set mode, 0=create team
-            this.packet.getIntegers().write(2, 1); //set packOptionData
+            this.packet.getIntegers().write(0, -1);
+            this.packet.getIntegers().write(1, 0);
+            this.packet.getIntegers().write(2, 1);
 
             this.packet.getSpecificModifier(Collection.class).write(0, Collections.singletonList(name));
             ProtocolLibrary.getProtocolManager().sendServerPacket(player2, packet);
@@ -47,17 +47,16 @@ public class TagManager {
 
             this.packet = ProtocolLibrary.getProtocolManager().createPacket(PacketType.Play.Server.SCOREBOARD_TEAM);
 
-            final String name = player1.getName();
-            User user = AvilonPlugin.getInstance().getUserManager().getUser(player1);
+            String name = player1.getName();
 
-            this.packet.getStrings().write(0, name); //set name
-            this.packet.getStrings().write(1, name ); //set displayname
+            this.packet.getStrings().write(0, name);
+            this.packet.getStrings().write(1, name);
             this.packet.getStrings().write(2, ChatHelper.fixColor(prefix(player1, player2)));
             this.packet.getStrings().write(3, ChatHelper.fixColor(suffix(player1, player2)));
 
-            this.packet.getIntegers().write(0, -1); //set color, -1 = no color
-            this.packet.getIntegers().write(1, 2); //set mode, 0=create team
-            this.packet.getIntegers().write(2, 1); //set packOptionData
+            this.packet.getIntegers().write(0, -1);
+            this.packet.getIntegers().write(1, 2);
+            this.packet.getIntegers().write(2, 1);
 
             this.packet.getSpecificModifier(Collection.class).write(0, Collections.singletonList(name));
             ProtocolLibrary.getProtocolManager().sendServerPacket(player2, packet);
@@ -65,21 +64,6 @@ public class TagManager {
             e.printStackTrace();
         }
     }
-
-//    public void delete(Player player1, Player player2) {
-//        try {
-//
-//            this.packet = ProtocolLibrary.getProtocolManager().createPacket(PacketType.Play.Server.SCOREBOARD_TEAM);
-//            final String name = player1.getName();
-//
-//            this.packet.getStrings().write(0, name); //set name
-//            this.packet.getIntegers().write(1, 1); //set mode, 0=create team
-//
-//            ProtocolLibrary.getProtocolManager().sendServerPacket(player2, packet);
-//        } catch (InvocationTargetException e) {
-//            e.printStackTrace();
-//        }
-//    }
 
     public void send(Player p) {
         for (Player online : Bukkit.getOnlinePlayers()) {
@@ -93,51 +77,42 @@ public class TagManager {
         Guild guildGet = AvilonPlugin.getInstance().getUserManager().getUser(get).getGuild();
         Guild guildSend = AvilonPlugin.getInstance().getUserManager().getUser(send).getGuild();
         User userGet = AvilonPlugin.getInstance().getUserManager().getUser(get);
-
         if (!send.hasPermission("avilon.incognito.bypass")) {
             if (userGet.isIncognito()) {
                 if (userGet.getGuild() != null) {
                     if (guildSend == null)
-                        return "&8[&c?&8] &f&k";
+                        return "&8[&c?&] &c&k";
                     else if (guildGet.getTag().equalsIgnoreCase(guildSend.getTag()))
                         return "&8[&a" + guildGet.getTag() + "&8] &f";
                     else if (guildSend.getAlly().contains(guildGet))
-                        return "&8[&6" + guildGet.getTag() + "&8] &f";
+                        return "&8[&6" + guildGet.getTag() + "&8] &6";
 
                     return "&8[&c?&8] &f&k";
-                } else {
+                }
+                else {
                     return "&f&k";
                 }
             }
         }
 
-        if (get.hasPermission("avilon.root")) {
+        if (get.hasPermission("avilon.root"))
             return "&4&lCEO &r&c";
-        }
-        if (get.hasPermission("avilon.dev")) {
-            return "&3&lDEV &r&b";
-        }
-        if (get.hasPermission("avilon.headadmin")) {
+        else if (get.hasPermission("avilon.headadmin"))
             return "&4&lH@ &r&c";
-        }
-        if (get.hasPermission("avilon.admin")) {
+        else if (get.hasPermission("avilon.admin"))
             return "&4&lADMIN &r&c";
-        }
-        if (get.hasPermission("avilon.moderator")) {
+        else if (get.hasPermission("avilon.mod"))
             return "&2&lMOD &r&a";
-        }
-        if (get.hasPermission("avilon.helper")) {
+        else if (get.hasPermission("avilon.helper"))
             return "&3&lHELPER &r&b";
-        }
-
-        if (guildGet == null)
+        else if (guildGet == null)
             return "";
         else if (guildSend == null)
-            return "&8[&c" + guildGet.getTag() + "&8] &f";
+            return "&8[&c" + guildGet.getTag() + "&8] &6";
         else if (guildGet.getTag().equalsIgnoreCase(guildSend.getTag()))
-            return "&8[&a" + guildGet.getTag() + "&8] &f";
+            return "&8[&a" + guildGet.getTag() + "&8] &a";
         else if (guildSend.getAlly().contains(guildGet))
-            return "&8[&6" + guildGet.getTag() + "&8] &f";
+            return "&8[&6" + guildGet.getTag() + "&8] &6";
 
         return "&8[&c" + guildGet.getTag() + "&8] &f";
     }
@@ -151,7 +126,7 @@ public class TagManager {
         }
         if (userGet.isIncognito()) {
             if (send.hasPermission("avilon.incognito.bypass")) {
-                return " &b&l(IG)";
+                return " &8(&bIG&8)";
             }
         }
         return "";
