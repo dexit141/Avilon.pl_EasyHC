@@ -110,4 +110,9 @@ public class User {
     public void removeDisabledDrop(Drop drop) {
         this.disabledDrops.remove(drop);
     }
+
+    public Guild getGuild() {
+        return AvilonPlugin.getInstance().getGuildManager().getGuild(this.getPlayer());
+    }
+
 }
